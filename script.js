@@ -1,51 +1,34 @@
 $(function(){
-  // allow table elements to change color when clicked
 
 
-  // $('td').on('click',function(){
-  //   $('td').addClass('X').html("X");
-  // })
-  var check = true;
-  // var noughtCheck = false;
 
+  var counter = 0;
 
-  function game() {
-    for (var i = 0; i < 10; i ++) {
-      turnCheck();
-    }
-  }
-
-  game();
-
-  function turnCheck() {
-    if (check === true) {
-      changeCross();
-      check = false;
-    } else if (check === false) {
-      changeNought();
-      check = true;
-    }
-  }
-
-  // turnCheck();
-
-  function changeCross() {
-    // event to change td to cross
+  function listeners() {
     $('td').each(function (index) {
       $('td').click(function(event){
-        $(this).addClass('X').html("X");
+          for (var i = 1; i < 10; i ++) {
+            counter ++;
+            if (counter % 2 === 0) {
+              $(this).addClass('X').html("X");
+            } else {
+              $(this).addClass('O').html("O");
+            }
+            if ($(this).hasClass( "X" ) === true) {
+              var z = 2;
+              console.log("class " + z);
+            } else if ($(this).hasClass( "X" ) === false) {
+              var y = 1;
+              console.log("class " + y);
+            }
+          }
       })
     })
   }
 
-  function changeNought() {
-    // event to change td to nought
-    $('td').each(function (index) {
-      $('td').click(function(event){
-        $(this).addClass('O').html("O");
-      })
-    })
-  }
+
+  listeners();
+
 
 
 
