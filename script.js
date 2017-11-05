@@ -33,6 +33,7 @@ $(function(){
             counter ++;
             $('.playerTurn').html("It is O's turn");
         }
+        // check to see if game is a draw 
         if (counter >= 10) {
           alert("It is a draw");
           resetBoard();
